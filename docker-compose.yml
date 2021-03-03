@@ -19,5 +19,17 @@ services:
     volumes:
       - db-store:/var/lib/mysql
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.0.2
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=secret
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
+
 volumes:
   db-store:
