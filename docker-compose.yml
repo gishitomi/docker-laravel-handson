@@ -31,5 +31,14 @@ services:
     volumes:
       - /sessions
 
+  node:
+    build: ./node
+    image: node-express-dev:1.0
+    tty: true
+    volumes:
+      - ./node/app:/app
+    ports:
+      - 8081:3000
+
 volumes:
   db-store:
